@@ -1,0 +1,529 @@
+/* ================================
+   GLOBAL
+   ================================ */
+:root {
+  /* AÇIK GRİ TEMA */
+  --bg-page: #f3f4f6;      /* sayfa zemini */
+  --bg-panel: #e5e7eb;     /* kart / form / preview */
+  --bg-input: #e5e7eb;
+
+  --accent: #9ca3af;       /* ana gri (buton, aktif) */
+  --accent-hover: #6b7280; /* hover */
+
+  --text-main: #111827;    /* ana yazı */
+  --text-muted: #6b7280;   /* ikincil yazı */
+
+  --border: #d1d5db;
+
+  --radius: 10px;
+  --transition: all 0.25s ease;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* ================================
+   HEADER
+   ================================ */
+
+#app-header {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 16px;
+  text-align: center;
+}
+
+#app-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ================================
+   SETTINGS
+   ================================ */
+
+#settings {
+  display: flex;
+  gap: 24px;
+  padding: 16px;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.setting-options {
+  display: flex;
+  gap: 8px;
+}
+
+.setting-options button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+/* Aktif */
+.setting-options button.active {
+  color: #ffffff;
+}
+
+/* Pasif */
+.setting-options button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ================================
+   TEXT AREA
+   ================================ */
+
+#text-area {
+  padding: 16px 20px 8px 20px;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* ================================
+   INPUT AREA
+   ================================ */
+
+#input-area {
+  padding: 8px 20px 20px 20px;
+  background-color: var(--bg-panel);
+}
+
+#typing-input:disabled {
+  background-color: #f1f5f9;
+}
+
+/* ================================
+   RESULT AREA
+   ================================ */
+
+#result-area {
+  padding: 20px;
+  background-color: var(--bg-page);
+  border-top: 1px solid #e5e7eb;
+}
+
+#result-area h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+#result-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#result-area li {
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+/* ================================
+   TIMER DISPLAY
+   ================================ */
+
+#timer-display {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ================================
+   RESULT BUTTON
+   ================================ */
+
+#restart-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* ================================
+   LIVE STATS PANEL
+   ================================ */
+
+#live-stats {
+  display: flex;
+  gap: 24px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #475569;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+#text-select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.text-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#reference-text {
+  height: 260px;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+#typing-input {
+  height: 260px;
+  width: 100%;
+  padding: 14px;
+
+  background-color: #ffffff;   /* ← İÇİ BEYAZ */
+  color: #111827;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  font-size: 16px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+}
+
+#fullscreen-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.panel {
+  background-color: var(--bg-panel);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+button,
+.btn {
+  background-color: var(--accent);
+  color: white;
+
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover,
+.btn:hover {
+  background-color: var(--accent-hover);
+}
+
+input,
+textarea,
+select {
+  background-color: var(--bg-input);
+  color: var(--text-main);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-hover);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* =========================
+   KLAVYE BUTONLARI – GRİ TEMA
+   ========================= */
+
+.keyboard button,
+.keyboard-btn,
+.key {
+  background-color: var(--accent) !important;
+  color: white;
+  border: none;
+  transition: var(--transition);
+}
+
+.keyboard button:hover,
+.keyboard-btn:hover,
+.key:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* =========================
+   SÜRE / TIMER BUTONLARI
+   ========================= */
+
+.timer button,
+.time-btn,
+.duration-btn {
+  background-color: var(--accent) !important;
+  color: white;
+  border: none;
+  transition: var(--transition);
+}
+
+.timer button:hover,
+.time-btn:hover,
+.duration-btn:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* =========================
+   AKTİF / SEÇİLİ DURUM
+   ========================= */
+
+.active,
+.selected {
+  background-color: var(--accent-hover) !important;
+  color: white !important;
+}
+
+/* =========================
+   YAZIM MODU – MODERN TOGGLE
+   ========================= */
+
+.spelling-toggle {
+  display: inline-flex;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.spelling-btn {
+  background: transparent;
+  border: none;
+
+  min-width: 90px;        /* ← ÖNEMLİ */
+  text-align: center;
+
+  padding: 6px 0;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.spelling-btn.active {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.spelling-btn:hover {
+  color: var(--text-main);
+}
+
+/* =========================
+   METİN SEÇME – MODERN SELECT
+   ========================= */
+
+#text-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  padding: 8px 40px 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* Sağ ok simgesi */
+#text-select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+#text-select:hover {
+  border-color: var(--accent-hover);
+}
+
+#text-select:focus {
+  outline: none;
+  border-color: var(--accent-hover);
+}
+
+/* =========================
+   ÜST SAĞ İSTATİSTİKLER
+   ========================= */
+
+/* MAVİ – DOĞRU KELİME */
+#top-correct {
+  order: 1;
+}
+
+/* SARI – SÜRE */
+#top-time {
+  order: 2;
+}
+
+.stat-pill {
+  background-color: #e5e7eb;
+  color: #111827;
+  min-width: 48px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+/* DOĞRU KELİME – YEŞİL */
+#top-correct {
+  background-color: #16a34a; /* yeşil */
+  color: #ffffff;
+}
+
+.stat-pill.time {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+#toggle-stats {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background-color: #d1d5db;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#top-stats.hidden .stat-pill {
+  display: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   METİN ÜSTÜ CANLI İSTATİSTİKLER (M5 BİLİŞİM STİLİ)
+   ========================= */
+
+.inline-stats {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+
+  margin-bottom: 8px;
+}
+
+/* =========================
+   STAT PILL GİZLEME MODU
+   ========================= */
+
+.stat-pill.hidden-value span {
+  visibility: hidden;
+}
+
+/* =========================
+   REFERANS METİN – SEÇİM ENGELİ
+   ========================= */
+
+#reference-text {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* =========================
+   STAT KUTULARI – SEÇİM ENGELİ
+   ========================= */
+
+.stat-pill {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

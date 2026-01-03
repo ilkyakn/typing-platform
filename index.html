@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>F Klavye Hız ve Doğruluk Testi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header id="app-header">
+    <h1>F Klavye Yazım Çalışması</h1>
+    <button id="fullscreen-btn" type="button">
+  Tam Ekran
+</button>
+  </header>
+
+  <!-- ================= SETTINGS ================= -->
+  <section id="settings">
+
+    <div class="setting-group">
+      <span class="setting-title">Metin</span>
+      <div class="setting-options">
+        <select id="text-select">
+          <option value="random">Rastgele</option>
+          <option value="60106">CTE Katipliği Metinleri / 2. Metin</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <span class="setting-title">Klavye</span>
+      <div class="setting-options">
+        <button class="keyboard-btn active" data-keyboard="F">F</button>
+        <button class="keyboard-btn disabled" data-keyboard="Q">Q</button>
+        <button class="keyboard-btn disabled" data-keyboard="E">E</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <span class="setting-title">Süre</span>
+      <div class="setting-options">
+        <button class="time-btn disabled" data-time="60">1 dk</button>
+        <button class="time-btn active" data-time="180">3 dk</button>
+        <button class="time-btn disabled" data-time="300">5 dk</button>
+        <button class="time-btn disabled" data-time="600">10 dk</button>
+        <button class="time-btn disabled" data-time="1800">30 dk</button>
+        <button class="time-btn disabled" data-time="0">Süresiz</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+  <span class="setting-title">Yazım Modu</span>
+
+  <div class="spelling-toggle">
+    <button type="button" class="spelling-btn active" data-mode="imlali">
+      İmlalı
+    </button>
+    <button type="button" class="spelling-btn" data-mode="imlasiz">
+      İmlasız
+    </button>
+  </div>
+</div>
+
+  </section>
+
+  <!-- ================= TEXT AREA ================= -->
+  <section id="text-area">
+    <div class="text-box">
+      <div class="inline-stats">
+  <div class="stat-pill" id="top-correct">
+    <span id="top-correct-value">0</span>
+  </div>
+
+  <div class="stat-pill time" id="top-time">
+    <span id="top-time-value">03:00</span>
+  </div>
+</div>
+      <div id="reference-text"></div>
+    </div>
+  </section>
+
+  <!-- ================= INPUT AREA ================= -->
+ <!-- ================= INPUT AREA ================= -->
+<section id="input-area">
+  <div class="text-box">
+    <textarea id="typing-input"></textarea>
+  </div>
+</section>
+
+  <!-- ================= RESULT ================= -->
+  <section id="result-area" hidden>
+
+    <h2>Sonuçlar</h2>
+
+    <ul>
+      <li>Toplam Süre: <span id="result-time">-</span></li>
+      <li>Doğru Kelime: <span id="result-correct">-</span></li>
+      <li>Yanlış Kelime: <span id="result-wrong">-</span></li>
+      <li>Atlanan Kelime: <span id="result-missed">-</span></li>
+      <li>Toplam Tuş: <span id="result-keystrokes">-</span></li>
+    </ul>
+
+    <button id="restart-btn">Yeniden Başla</button>
+  </section>
+
+  <!-- ================= JS ================= -->
+  <script src="js/config/durations.js"></script>
+  <script src="js/config/keyboards.js"></script>
+  <script src="js/data/texts.js"></script>
+
+  <script src="js/engine/timer.js"></script>
+  <script src="js/engine/typing.js"></script>
+  <script src="js/engine/stats.js"></script>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
